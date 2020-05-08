@@ -1,0 +1,52 @@
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+  background-color: rgb(33, 33, 33);
+  color: whitesmoke
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3.5em;
+  font-weight: bold;
+  color: rgb(179, 179, 179);
+}
+
+.song_card {
+  flex: 0 0 20%;
+  background-color: firebrick;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: .5em;
+  padding: .5em;
+  margin: .5em;
+  text-align: center;
+  opacity: .6;
+}
+
+.song_card:hover {
+  /* background-color: crimson; */
+  opacity: 1;
+  border: 1px solid rgb(133, 133, 133);
+  box-shadow: 0 5px 10px black;
+}
+
+.song_card:hover h2 {
+  text-shadow: 0 3px 5px black;
+}
+
+.delete_btn {
+  background-color: rgb(108, 11, 30);
+  color: rgb(240, 91, 120);
+  padding: .5em;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
+button:hover {
+  color: whitesmoke;
+  background-color: darkgreen;
+  border: 2px solid rgb(33, 33, 33);
+}
