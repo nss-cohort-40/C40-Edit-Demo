@@ -1,17 +1,79 @@
 console.log("Let's Rock!");
 
-import apiManager from './apiManager.js'
+import apiManager from './apiManager.js';
 
 // this gets a reference to song output container element
 const songOutputContainer = document.getElementById("songs_container");
 
+// this holds references to all of the song add / edit form elements
+const songFormInputs = {
+  id: document.getElementById("songId"),
+  title: document.getElementById("title"),
+  artist: document.getElementById("artist"),
+  yearReleased: document.getElementById("yearReleased"),
+  length: document.getElementById("length")
+};
+
+// reference to form submit button
+const formSubmitBtn = document.getElementById("form-submit");
+
+formSubmitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  // capture input values
+  const songFormValues = {
+    "title": songFormInputs.title.value,
+    "artist": songFormInputs.artist.value,
+    "yearReleased": songFormInputs.yearReleased.value,
+    "length": parseInt(songFormInputs.length.value)
+  }
+
+  // get hidden input value (this is the song id if editing / or null if adding new)
+  const songId = songFormInputs.id.value
+
+  if (songId) {
+    apiManager.updateSong(songFormValues, songId)
+      .then(getAndRenderAllSongs)
+    clearSongEditForm()
+  } else {
+    apiManager.createSong(songFormValues)
+      .then(getAndRenderAllSongs)
+    clearSongEditForm()
+  }
+})
+
+
 songOutputContainer.addEventListener("click", (event) => {
+  if (event.target.id.startsWith("edit--")) {
+    const songId = event.target.id.split("--")[1]
+    apiManager.getSongById(songId)
+      .then((song) => {
+        prepopulateSongEditForm(song)
+      })
+  }
   if (event.target.id.startsWith("delete--")) {
     const songId = event.target.id.split("--")[1]
     apiManager.deleteSong(songId)
       .then(getAndRenderAllSongs)
   }
-})
+});
+
+function prepopulateSongEditForm(song) {
+  songFormInputs.id.value = song.id
+  songFormInputs.title.value = song.title
+  songFormInputs.artist.value = song.artist
+  songFormInputs.yearReleased.value = song.yearReleased
+  songFormInputs.length.value = song.length
+}
+
+function clearSongEditForm(song) {
+  songFormInputs.id.value = ""
+  songFormInputs.title.value = ""
+  songFormInputs.artist.value = ""
+  songFormInputs.yearReleased.value = ""
+  songFormInputs.length.value = ""
+}
+
+
 
 // this function:
 // clears the output container
@@ -39,6 +101,7 @@ function songToHTML(song) {
   <h2>${song.title}</h2>
   <h3>by: ${song.artist}</h3>
   <p>released: ${song.yearReleased}</p>
+  <button id="edit--${song.id}" class="edit_btn">edit</button>
   <button id="delete--${song.id}" class="delete_btn">delete</button>
   </div>
   `
@@ -54,23 +117,3 @@ function sortAZ(a, b) {
   return a.title.localeCompare(b.title)
 }
 
-
-
-// add delete button to HTML representation with a delete--(songId) and delete_btn class
-// test^^
-// add click event listener to songs_container to listen for delete buttons
-// test^^
-// get song Id from button using split
-// test^^
-
-// add delete method to API module
-// call delete method in event listener and pass in song Id as argument
-// test^^
-// get all songs and re-render
-// test^^
-
-// show page with css
-// test^^
-
-// TODO: refactor add event listeners and delete/rerender into separate functions
-// TODO: test^^
