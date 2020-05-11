@@ -22,6 +22,7 @@ Before we can edit a song, we need to get the current song details and pre-popul
 <!-- handling edit form -->
 - add click event listener to form submit button
 - test^^
+- get references to input fields ()
 - collect data from input fields on submit button click
 - test^^ -->> add event.preventDefault() to prevent page refresh
 - create object from data collected (*updatedSong*)
