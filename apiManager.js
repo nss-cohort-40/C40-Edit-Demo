@@ -14,24 +14,27 @@ const apiManager = {
       method: "DELETE"
     })
   },
-  updateSong(updatedSong, id) {
+  updateSong(songObject, id) {
     return fetch(`${apiURL}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(updatedSong)
+      body: JSON.stringify(songObject)
     })
+      .then(data => data.json())
   },
-  createSong(newSong) {
-    return fetch(apiURL, {
+  createSong(songObject) {
+    return fetch(`${apiURL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(newSong)
+      body: JSON.stringify(songObject)
     })
+      .then(data => data.json())
   }
+
 }
 
 export default apiManager

@@ -64,6 +64,13 @@
       "length": 273
     },
     {
+      "id": 10,
+      "title": "Baby's in Black",
+      "artist": "Beatles",
+      "yearReleased": "1980",
+      "length": 254
+    },
+    {
       "id": 11,
       "title": "Fade to Black",
       "artist": "Metallica",
@@ -139,6 +146,13 @@
       "artist": "Metallica",
       "yearReleased": "1986",
       "length": 517
+    },
+    {
+      "id": 23,
+      "title": "Blackened",
+      "artist": "Metallica",
+      "yearReleased": "1988",
+      "length": 402
     },
     {
       "id": 24,
@@ -251,6 +265,13 @@
       "artist": "Judas Priest",
       "yearReleased": "1982",
       "length": 219
+    },
+    {
+      "title": "Aces High",
+      "artist": "Iron Maiden",
+      "yearReleased": "1984",
+      "length": 459,
+      "id": 40
     }
   ]
 }
