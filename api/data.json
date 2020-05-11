@@ -64,25 +64,11 @@
       "length": 273
     },
     {
-      "id": 10,
-      "title": "Back in Black",
-      "artist": "AC/DC",
-      "yearReleased": "1980",
-      "length": 254
-    },
-    {
       "id": 11,
       "title": "Fade to Black",
       "artist": "Metallica",
       "yearReleased": "1984",
       "length": 416
-    },
-    {
-      "id": 12,
-      "title": "Ace of Spades",
-      "artist": "Motorhead",
-      "yearReleased": "1980",
-      "length": 170
     },
     {
       "id": 13,
@@ -153,13 +139,6 @@
       "artist": "Metallica",
       "yearReleased": "1986",
       "length": 517
-    },
-    {
-      "id": 23,
-      "title": "Blackened",
-      "artist": "Metallica",
-      "yearReleased": "1988",
-      "length": 402
     },
     {
       "id": 24,
